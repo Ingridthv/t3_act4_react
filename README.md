@@ -1,16 +1,59 @@
-# React + Vite
+# Lista de Notas con React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mini aplicación hecha con React y Vite. Permite agregar, completar,
+editar y eliminar notas. Usa componentes, props, estado (`useState`)
+y renderizado de listas con `.map()`.
 
-Currently, two official plugins are available:
+## Componentes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **TodoApp:** componente principal. Guarda la lista de notas en el estado
+  y define las funciones para agregar, eliminar, completar y actualizar.
+- **TodoForm:** formulario para crear notas. Recibe `onAgregarNota` por props.
+- **EditNoteForm:** formulario para editar una nota. Recibe `nota`,
+  `onEditarNota` y `onCancelar` por props.
 
-## React Compiler
+## Cómo ejecutarlo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Preguntas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**a) ¿Qué diferencia hay entre props y state en React?**
+
+Las props son datos que un componente padre le pasa a un componente hijo.
+El hijo solo las puede leer, no modificarlas. Por ejemplo, `TodoApp` le pasa
+`onAgregarNota` a `TodoForm`. El state, en cambio, son datos que pertenecen
+al propio componente y que pueden cambiar con el tiempo. Cuando el state
+cambia, React vuelve a dibujar el componente con los valores nuevos.
+
+**b) ¿Por qué es importante usar una key al renderizar una lista?**
+
+La key le permite a React identificar cada elemento de la lista. Gracias a
+eso, cuando agrego, borro o cambio una nota, React sabe cuál elemento
+cambió y solo actualiza ese, en lugar de confundirlos o volver a dibujar
+todo. En mi app uso `key={nota.id}` en cada `<li>`.
+
+**c) Explica con tus propias palabras qué hace `useState` y da un ejemplo.**
+
+`useState` sirve para que un componente recuerde información y para que la
+pantalla se actualice cuando esa información cambia. Devuelve dos cosas: el
+valor actual y una función para cambiarlo. Al llamar a esa función, React
+guarda el valor nuevo y vuelve a renderizar el componente.
+
+En mi mini aplicación lo usé en varios lugares:
+- En `TodoApp`: `const [notas, setNotas] = useState([...])` guarda la lista
+  de notas, y `setNotas` la actualiza al agregar, borrar, completar o editar.
+- En `TodoForm`: `const [textNote, setTextNote] = useState("")` guarda lo que
+  el usuario escribe en el input.
+- En `TodoApp` también: `notaEditandoId` guarda cuál nota se está editando.
+
+**d) Enlace del repositorio de GitHub:**
+
+https://github.com/Ingridthv/t3_act4_react
+
+**e) Enlace del proyecto desplegado en GitHub Pages:**
+
+https://ingridthv.github.io/t3_act4_react/
