@@ -1,3 +1,9 @@
+.app {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .titulo {
     font-size: 2rem;
     color: orange;
@@ -5,35 +11,98 @@
     text-align: center;
 }
 
+/* Contador + filtros */
+.barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 10px;
+}
+
+.contador {
+    margin: 0;
+    color: #ccc;
+    font-weight: 500;
+}
+
+.filtros {
+    display: flex;
+    gap: 8px;
+}
+
+.filtros button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.filtros button.activo {
+    background-color: orange;
+    font-weight: bold;
+}
+
+/* Lista */
 .noteList {
-    List-style: none;
-    padding: 20px;
+    list-style: none;
+    padding: 0;
     margin: 0;
 }
 
 .noteItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  font-size: 1.3em;
-  flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 1.3em;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #333;
 }
 
 .iconsContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  svg {
-    cursor: pointer;
-  }
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
+.estadoBtn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    color: #000;
+    font-size: 0.65em;
+    cursor: pointer;
+}
+
+.iconBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    color: #000;
+    cursor: pointer;
+}
+
+.estadoBtn:hover,
+.iconBtn:hover {
+    background-color: #ddd;
+}
+
+/* Formulario de edición */
 .editForm {
     margin-top: 20px;
     padding: 10px;
     background-color: #f8f9fa;
+    color: #000;
     border-radius: 6px;
     border: 2px solid #f3f3f3;
     width: 100%;
@@ -46,9 +115,11 @@
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 6px;
+    box-sizing: border-box;
 }
 
-.saveButton, cancelButton {
+.saveButton,
+.cancelButton {
     padding: 5px 10px;
     border: none;
     border-radius: 6px;
@@ -57,8 +128,20 @@
 
 .saveButton {
     background-color: #28a745;
+    color: #fff;
+    margin-right: 8px;
 }
 
-.cancelButton{
+.cancelButton {
     background-color: aqua;
+}
+.nota {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.emoji {
+    text-decoration: none;
+    opacity: 1;
 }

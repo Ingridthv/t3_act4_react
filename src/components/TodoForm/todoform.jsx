@@ -24,22 +24,23 @@ const TodoForm = ({ onAgregarNota }) => {
     };
 
     return (
-        <div className={styles.formContainer}>
-            <h2>Todo form</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    id="nota"
-                    name="nota"
-                    value={textNote}
-                    onChange={(event) => setTextNote(event.target.value)}
-                />
-                <button type="submit">
-                    <Plus size={15} />
-                    Crear Nota
-                </button>
-            </form>
-        </div>
+  <div className={styles.formContainer}>
+    <h2>Nueva nota</h2>
+    <form onSubmit={handleSubmit} className={styles.form}>
+        <input
+            type="text"
+            id="nota"
+            name="nota"
+            placeholder="Escribe una nota..."
+            value={textNote}
+            onChange={(event) => setTextNote(event.target.value)}
+        />
+        <button type="submit">
+            <Plus size={15} />
+            Crear Nota
+        </button>
+    </form>
+  </div>
     );
 };
 
